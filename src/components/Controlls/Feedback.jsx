@@ -3,12 +3,11 @@ import { Box } from 'components/Common/Box';
 
 import { FbButton } from './Feedback.styled';
 
-export const Controls = ({ options: feedbackOptions = [], onFeedbackClick }) => {
-  // console.log(options);
+export const Controls = ({ options = [], onFeedbackClick }) => {
   return (
     <Box display="flex" flexDirection="row" justifyContent="space-around" alignItems="center" py="10px">
-      {feedbackOptions.map(feedbackOption => {
-        const { key, bgColor, title } = feedbackOption;
+      {options.map(option => {
+        const { key, bgColor, uc:title } = option;
 
         return (
           <FbButton

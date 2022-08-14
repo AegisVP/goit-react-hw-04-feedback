@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FbButton = styled.button`
   cursor: pointer;
-  width: 28%;
+  width: ${p=>p.theme.widths.oneWidth-10}px;
   border: none;
   outline: none;
   border-radius: ${p => p.theme.radii.normal};

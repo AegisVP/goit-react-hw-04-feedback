@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   border-top: 2px solid #dddddd;
-  width: 400px;
+  width: ${p=>p.theme.widths.totalWidth}px;
   border-radius: ${p => p.theme.radii.normal};
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 `;

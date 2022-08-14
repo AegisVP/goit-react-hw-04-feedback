@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Box } from 'components/Common/Box';
-import { lang } from '../Common/lang.js';
-
 import { StatRow, Value } from './Display.styled';
 
-export const Stats = ({ good, neutral, bad, countTotalFeedback, countPositiveFeedbackPercentage }) => {
+export const Stats = ({ options, values, countTotalFeedback, countPositiveFeedbackPercentage }) => {
   let rColor = 255 - 2.55 * (countPositiveFeedbackPercentage - 75) * 4;
   let gColor = 2.55 * (countPositiveFeedbackPercentage * 2 - 100) * 2;
 
@@ -15,15 +13,11 @@ export const Stats = ({ good, neutral, bad, countTotalFeedback, countPositiveFee
 
   return (
     <Box borderTop="2px solid #DDDDDD">
-      <StatRow backgroundColor="#ccffcc">
-        {lang.good.cc}: <Value>{good}</Value>
-      </StatRow>
-      <StatRow backgroundColor="#ccffff">
-        {lang.neutral.cc}: <Value>{neutral}</Value>
-      </StatRow>
-      <StatRow backgroundColor="#ffcccc">
-        {lang.bad.cc}: <Value>{bad}</Value>
-      </StatRow>
+      {options.map(option => (
+        <StatRow backgroundColor={option.bgColor}>
+          {option.cc}:<Value>{values[option.key]}</Value>
+        </StatRow>
+      ))}
       <StatRow backgroundColor="#f0f0f0">
         Total: <Value>{countTotalFeedback}</Value>
       </StatRow>

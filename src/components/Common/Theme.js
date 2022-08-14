@@ -1,3 +1,5 @@
+import { options } from 'components/Common/Options';
+
 export const theme = {
   colors: {
     defaultText: '#000000',
@@ -23,9 +25,11 @@ export const theme = {
     large: '10px',
     round: '50%',
   },
-  margin: `margin: ${returnParams}`,
-  padding: `padding: ${returnParams}`,
   mp: returnParams,
+  widths: {
+    oneWidth: 120,
+    totalWidth: `${options.length * 120}`,
+  },
 };
 
 function returnParams(...sizes) {
@@ -35,7 +39,7 @@ function returnParams(...sizes) {
 
   for (const size of sizes) {
     let index = size;
-    
+
     if (index === 0) {
       resultArray.push('0');
     } else if (index > 0) {
