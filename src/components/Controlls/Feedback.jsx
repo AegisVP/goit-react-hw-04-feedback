@@ -29,9 +29,11 @@ Controls.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string.isRequired,
+      cc: PropTypes.string,
+      uc: PropTypes.string.isRequired,
+      lc: PropTypes.string,
       bgColor: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
     })
   ).isRequired,
-  onFeedbackClick: PropTypes.func.isRequired
+  onFeedbackClick: PropTypes.func.isRequired,
 };

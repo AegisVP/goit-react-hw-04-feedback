@@ -14,7 +14,7 @@ export const Stats = ({ options, values, countTotalFeedback, countPositiveFeedba
   return (
     <Box borderTop="2px solid #DDDDDD">
       {options.map(option => (
-        <StatRow backgroundColor={option.bgColor}>
+        <StatRow key={option.key} backgroundColor={option.bgColor}>
           {option.cc}:<Value>{values[option.key]}</Value>
         </StatRow>
       ))}
@@ -29,9 +29,16 @@ export const Stats = ({ options, values, countTotalFeedback, countPositiveFeedba
 };
 
 Stats.propTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      cc: PropTypes.string.isRequired,
+      uc: PropTypes.string.isRequired,
+      lc: PropTypes.string.isRequired,
+      bgColor: PropTypes.string.isRequired,
+    })
+  ),
+  values: PropTypes.any.isRequired,
   countTotalFeedback: PropTypes.number.isRequired,
   countPositiveFeedbackPercentage: PropTypes.number.isRequired,
 };
